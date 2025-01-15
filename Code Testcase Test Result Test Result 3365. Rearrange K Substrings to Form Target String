@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isPossibleToRearrange(String s, String t, int k) {
+        ArrayList<String> list1 = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
+        int split = s.length() / k;
+        for(int i = 0; i < s.length(); i += split) {
+            String sub1 = s.substring(i, i + split);
+            String sub2 = t.substring(i, i + split);
+            list1.add(sub1);
+            list2.add(sub2);
+        }
+        Collections.sort(list1);
+        Collections.sort(list2);
+        return list1.equals(list2);
+    }
+}
