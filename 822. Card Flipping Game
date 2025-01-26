@@ -1,0 +1,21 @@
+class Solution {
+    public int flipgame(int[] fronts, int[] backs) {
+        boolean[] f = new boolean[2001];
+        for(int i = 0; i < fronts.length; i++) {
+            if(fronts[i] == backs[i]) {
+                f[fronts[i]] = true;
+            }
+        }
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < fronts.length; i++) {
+            if(f[fronts[i]] != true) {
+                min = Math.min(min, fronts[i]);
+            }
+            if(f[backs[i]] != true) {
+                min = Math.min(min, backs[i]);
+            }
+        }
+        if(min == Integer.MAX_VALUE) return 0;
+        else return min;
+    }
+}
